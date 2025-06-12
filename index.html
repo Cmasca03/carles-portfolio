@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.development.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7/babel.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/framer-motion@11.2.0/dist/framer-motion.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/framer-motion@11.9.0/dist/framer-motion.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
@@ -46,8 +46,9 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    const { motion } = window.FramerMotion;
-    const { useState, useEffect } = React;
+  // Verificar si FramerMotion está disponible
+  const motion = window.FramerMotion && window.FramerMotion.motion ? window.FramerMotion.motion : (props) => React.createElement('div', props);
+  const { useState, useEffect } = React;
 
     // Navbar Component
     const Navbar = () => (
